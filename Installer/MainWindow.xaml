@@ -1,0 +1,80 @@
+﻿<Window x:Class="Installer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login1"
+        mc:Ignorable="d"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="400" Width="600" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown_1" Loaded="Window_Loaded">
+
+    <Grid x:Name="LoginGrid" Margin="13,11,10,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="554*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="198*"/>
+            <RowDefinition Height="182*"/>
+        </Grid.RowDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+        </Grid.Effect>
+        <Rectangle x:Name="Main_Rectangle" RadiusY="8" RadiusX="8" Fill="White" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3" Grid.ColumnSpan="3" Height="381" VerticalAlignment="Top" HorizontalAlignment="Left" Width="577">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Image Grid.RowSpan="3" Grid.Column="2" HorizontalAlignment="Left" Width="269" Margin="264,0,0,0" Height="381" VerticalAlignment="Top" Stretch="UniformToFill" Source="Assets/welcome.jpg"/>
+        <Rectangle x:Name="GradientRectangle" Grid.RowSpan="3" Grid.Column="2" HorizontalAlignment="Left" Width="269" Height="381" VerticalAlignment="Top" Margin="264,0,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#CC871293" Offset="0.986"/>
+                    <GradientStop Color="#0046E3EA"/>
+                    <GradientStop Color="#66161A64"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="20,8.963,290,10" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Row="1">
+            <Label x:Name="Login" Content="Installer" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="Help" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"><Run Text="Beta 1.0.0 "/></TextBlock>
+            </StackPanel>
+            <StackPanel x:Name="UsernamePanel" Margin="0,15" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070" Visibility="Hidden"/>
+                <TextBox x:Name="UsernameTextbox" materialDesign:HintAssist.Hint="Username" Width="250" Margin="5" TextChanged="UsernameTextbox_TextChanged_1" Visibility="Hidden"/>
+            </StackPanel>
+            <StackPanel x:Name="IDPanel" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070" Visibility="Hidden"/>
+                <TextBox x:Name="IdTextBox" materialDesign:HintAssist.Hint="ID" Width="250" Margin="5" IsReadOnly="True" Visibility="Hidden"/>
+            </StackPanel>
+            <Grid/>
+            <Button x:Name="LoginButton" Content="GO" FontSize="14" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,83,0" Click="LoginButton_Click" HorizontalAlignment="Right" Width="100"/>
+            <materialDesign:PackIcon x:Name="updateButton" VerticalAlignment="Center" Foreground="#707070" RenderTransformOrigin="0.873,10.479" Height="27" Width="28" Padding="0,50,0,0" Margin="0,107,0,0" Kind="Refresh" ToolTip="Check for updates" Cursor="Hand" MouseUp="UpdateButton_MouseUp" Background="White" MouseDown="UpdateButton_MouseDown"/>
+            <CheckBox x:Name="toggleStartup" Content="Check for updates at system startup" Margin="33,-28,0,0" Height="18" Checked="ToggleStartup_Checked" Unchecked="ToggleStartup_Checked"/>
+        </StackPanel>
+        <StackPanel Margin="264,48.963,0,50" Grid.RowSpan="2" Grid.Column="2" HorizontalAlignment="Left" Width="269" Grid.Row="1">
+            <TextBlock x:Name="WelcomeText" Text="Welcome!" Foreground="White" FontSize="48" FontFamily="Champagne &amp; Limousines" FontWeight="Bold" Margin="22,0"/>
+            <TextBlock x:Name="DescText" Text="Using this application you can download all our editing tools, and easily manage installs!" Foreground="White" FontSize="24" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Center" Margin="10,50,10,0"/>
+            <TextBlock x:Name="NameText" Text="-Team A" Foreground="White" FontSize="18" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Right" Margin="0,10,10,10" HorizontalAlignment="Left" Width="249"/>
+        </StackPanel>
+        <TextBlock Text="X" Foreground="White" FontSize="18" FontFamily="Champagne &amp; Limousines" TextWrapping="Wrap" TextAlignment="Right" Margin="538,1,-5,187" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.RowSpan="2">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Label Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="411,172,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
